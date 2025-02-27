@@ -77,9 +77,30 @@ Un délai a été ajouté avant l’exécution de la recherche pour éviter de d
 
 _Votre réponse pour l'exercice 2 :_
 ```
-Expliquez votre solution ici
+Expliquez votre solution ici: 
+
+
+2.1 Création du LanguageContext
+
+J'ai créé un LanguageContext dans App.js pour stocker la langue sélectionnée par l'utilisateur. Cela permet aux autres composants d'accéder à la langue actuelle et d'afficher le texte correspondant.
+
+
+2.2 Ajout du sélecteur de langue
+
+J'ai ajouté un useState pour la langue dans App.js et un <select> permettant à l'utilisateur de choisir entre le français et l'anglais. Cette valeur est stockée dans LanguageContext et utilisée dans d'autres composants.
+
+
+2.3 Adaptation des composants
+
+Dans ProductSearch.js et ProductList.js, j'ai utilisé useContext(LanguageContext) pour récupérer la langue sélectionnée et adapter les textes affichés (placeholder, messages d’erreur, etc.).
+
+
 [Ajoutez vos captures d'écran]
 ```
+(public/images/exercice_2_fr.png)
+(public/images/exercice_2_en.png)
+
+
 
 ### Exercice 3 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables

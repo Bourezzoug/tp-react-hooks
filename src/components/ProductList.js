@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../App';
+import { ThemeContext, LanguageContext } from '../App';
 import useProductSearch from '../hooks/useProductSearch';
 
-const ProductList = ({ searchTerm }) => {  // Accept searchTerm as a prop
+const ProductList = ({ searchTerm }) => {  
   const { isDarkTheme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
+
   // TODO: Exercice 2.1 - Utiliser le LanguageContext pour les traductions
 
   const { 
@@ -22,14 +24,14 @@ const ProductList = ({ searchTerm }) => {  // Accept searchTerm as a prop
   if (loading) return (
     <div className="text-center my-4">
       <div className="spinner-border" role="status">
-        <span className="visually-hidden">Chargement...</span>
+        <span className="visually-hidden">{language === 'fr' ? 'Chargement...' : 'Loading...'}</span>
       </div>
     </div>
   );
 
   if (error) return (
     <div className="alert alert-danger" role="alert">
-      Erreur: {error}
+      {language === 'fr' ? `Erreur: ${error}` : `Error: ${error}`}
     </div>
   );
 
@@ -53,7 +55,7 @@ const ProductList = ({ searchTerm }) => {  // Accept searchTerm as a prop
                   <h5 className="card-title">{product.title}</h5>
                   <p className="card-text">{product.description}</p>
                   <p className="card-text">
-                    <strong>Prix: </strong>
+                    <strong>{language === 'fr' ? 'Prix: ' : 'Price: '}</strong>
                     {product.price}€
                   </p>
                 </div>
@@ -61,7 +63,7 @@ const ProductList = ({ searchTerm }) => {  // Accept searchTerm as a prop
             </div>
           ))
         ) : (
-          <p className="text-center">Aucun produit trouvé.</p>  // Show message if no results
+          <p className="text-center">{language === 'fr' ? 'Aucun produit trouvé.' : 'No products found.'}</p>
         )}
       </div>
 
