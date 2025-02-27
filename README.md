@@ -57,7 +57,7 @@ Expliquez votre solution ici :
 
 1.1 Modification du composant ProductSearch
 Le composant ProductSearch utilise maintenant un état local searchTerm, mis à jour à chaque saisie. La valeur est ensuite transmise au parent (App.js) via la prop onSearch, qui la redirige vers ProductList pour filtrer les produits affichés.
-Maintenance votre partie pour expliquer debounce
+
 
 1.2 Implémentation du debounce sur la recherche
 Un délai a été ajouté avant l’exécution de la recherche pour éviter de déclencher une requête à chaque frappe. Un setTimeout de 500ms attend la fin de la saisie avant de transmettre la valeur au parent via onSearch. Si l’utilisateur continue de taper, le précédent setTimeout est annulé avec clearTimeout.
@@ -112,8 +112,22 @@ Dans ProductSearch.js et ProductList.js, j'ai utilisé useContext(LanguageContex
 _Votre réponse pour l'exercice 3 :_
 ```
 Expliquez votre solution ici
+
+
+3.1 Création du hook useDebounce
+J'ai créé un hook personnalisé useDebounce qui accepte une valeur et un délai. Ce hook utilise useState pour stocker la valeur temporisée et useEffect avec setTimeout pour déclencher la mise à jour après le délai spécifié. Il gère également le nettoyage des timers précédents avec clearTimeout. Ce mécanisme évite d'exécuter des opérations coûteuses à chaque changement de valeur.
+
+3.2 Création du hook useLocalStorage
+J'ai implémenté un hook useLocalStorage qui étend le fonctionnement de useState en ajoutant la persistance dans le localStorage du navigateur. Il prend une clé et une valeur initiale, vérifie si une valeur existe déjà dans le localStorage, et retourne un tableau [valeur, fonction] similaire à useState. La fonction de mise à jour synchronise automatiquement l'état avec le localStorage, permettant aux préférences utilisateur de persister entre les sessions.
+
+3.3 Intégration dans l'application
+Ces hooks sont maintenant utilisés dans l'application : useDebounce dans ProductSearch pour optimiser la recherche, et useLocalStorage dans App.js pour sauvegarder le thème et la langue choisis par l'utilisateur. Cette approche améliore les performances et l'expérience utilisateur tout en gardant le code modulaire et réutilisable.
+
+
+
 [Ajoutez vos captures d'écran]
 ```
+![Aperçu de l'exercice 3](public/images/exercice_3.mov)
 
 ### Exercice 4 : Gestion Asynchrone et Pagination
 #### Objectif : Gérer le chargement et la pagination

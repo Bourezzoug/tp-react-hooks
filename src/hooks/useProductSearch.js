@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-
-// TODO: Exercice 3.1 - Créer le hook useDebounce
-// TODO: Exercice 3.2 - Créer le hook useLocalStorage
+import useDebounce from './useDebounce';
 
 const useProductSearch = () => {
   const [products, setProducts] = useState([]);
