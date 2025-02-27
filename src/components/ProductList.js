@@ -1,3 +1,4 @@
+// ProductList.js
 import React, { useContext } from 'react';
 import { ThemeContext, LanguageContext } from '../App';
 import useProductSearch from '../hooks/useProductSearch';
@@ -6,17 +7,17 @@ const ProductList = ({ searchTerm }) => {
   const { isDarkTheme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
-  // TODO: Exercice 2.1 - Utiliser le LanguageContext pour les traductions
-
   const { 
     products, 
     loading, 
     error,
-    // TODO: Exercice 4.1 - Récupérer la fonction de rechargement
-    // TODO: Exercice 4.2 - Récupérer les fonctions et états de pagination
+    reload,
+    currentPage,
+    totalPages,
+    nextPage,
+    previousPage
   } = useProductSearch();
 
-  // Filter products based on searchTerm
   const filteredProducts = products.filter(product =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -68,7 +69,6 @@ const ProductList = ({ searchTerm }) => {
       </div>
 
       {/* TODO: Exercice 4.2 - Ajouter les contrôles de pagination */}
-      {/* Exemple de structure pour la pagination :
       <nav className="mt-4">
         <ul className="pagination justify-content-center">
           <li className="page-item">
@@ -88,7 +88,7 @@ const ProductList = ({ searchTerm }) => {
           </li>
         </ul>
       </nav>
-      */}
+     
     </div>
   );
 };

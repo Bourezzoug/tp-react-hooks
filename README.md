@@ -138,10 +138,19 @@ Ces hooks sont maintenant utilisés dans l'application : useDebounce dans Produc
 
 _Votre réponse pour l'exercice 4 :_
 ```
-Expliquez votre solution ici
+Expliquez votre solution ici:
+
+
+J’ai créé deux fonctions nextPage et previousPage pour gérer la navigation entre les pages. Ces fonctions mettent à jour l’état currentPage, puis découpent le tableau complet des produits (allProducts) pour n’afficher que 6 produits par page à l’aide de slice(). L’état totalPages est calculé automatiquement en divisant le nombre total de produits par 6.
+
+
+J’ai ajouté une fonction reload dans le hook useProductSearch qui relance la récupération des données depuis l’API et réinitialise la pagination à la première page. Un bouton "Actualiser" dans ProductList appelle cette fonction, permettant de rafraîchir manuellement la liste des produits.
+
+
 [Ajoutez vos captures d'écran]
 ```
-
+![Aperçu de l'exercice 3](public/images/exercice_4_1.png)
+![Aperçu de l'exercice 3](public/images/exercice_4_2.png)
 ## Rendu
 
 - Ajoutez l'URL de votre dépôt Github dans  **Classroom** et envoyer la réponse dès le démarage de votre projet.
