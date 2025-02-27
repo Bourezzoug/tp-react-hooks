@@ -97,8 +97,8 @@ Dans ProductSearch.js et ProductList.js, j'ai utilisé useContext(LanguageContex
 
 [Ajoutez vos captures d'écran]
 ```
-(public/images/exercice_2_fr.png)
-(public/images/exercice_2_en.png)
+![Aperçu de l'exercice 2](public/images/exercice_2_fr.png)
+![Aperçu de l'exercice 2_](public/images/exercice_2_en.png)
 
 
 
