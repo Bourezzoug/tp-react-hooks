@@ -53,9 +53,20 @@ Pour chaque exercice :
 
 _Votre réponse pour l'exercice 1 :_
 ```
-Expliquez votre solution ici
+Expliquez votre solution ici : 
+
+1.1 Modification du composant ProductSearch
+Le composant ProductSearch utilise maintenant un état local searchTerm, mis à jour à chaque saisie. La valeur est ensuite transmise au parent (App.js) via la prop onSearch, qui la redirige vers ProductList pour filtrer les produits affichés.
+Maintenance votre partie pour expliquer debounce
+
+1.2 Implémentation du debounce sur la recherche
+Un délai a été ajouté avant l’exécution de la recherche pour éviter de déclencher une requête à chaque frappe. Un setTimeout de 500ms attend la fin de la saisie avant de transmettre la valeur au parent via onSearch. Si l’utilisateur continue de taper, le précédent setTimeout est annulé avec clearTimeout.
+
+
+
 [Ajoutez vos captures d'écran]
 ```
+![Aperçu de l'exercice 1](public/images/exercice_1_1.png)
 
 ### Exercice 2 : Context et Internationalisation
 #### Objectif : Gérer les préférences de langue
